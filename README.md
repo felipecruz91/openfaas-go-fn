@@ -16,49 +16,6 @@ arkade install openfaas
 ```
 
 ```bash
-Release "openfaas" does not exist. Installing it now.
-NAME: openfaas
-LAST DEPLOYED: Fri Nov 26 15:51:12 2021
-NAMESPACE: openfaas
-STATUS: deployed
-REVISION: 1
-TEST SUITE: None
-NOTES:
-To verify that openfaas has started, run:
-
-  kubectl -n openfaas get deployments -l "release=openfaas, app=openfaas"
-=======================================================================
-= OpenFaaS has been installed.                                        =
-=======================================================================
-
-# Get the faas-cli
-curl -SLsf https://cli.openfaas.com | sudo sh
-
-# Forward the gateway to your machine
-kubectl rollout status -n openfaas deploy/gateway
-kubectl port-forward -n openfaas svc/gateway 8080:8080 &
-
-# If basic auth is enabled, you can now log into your gateway:
-PASSWORD=$(kubectl get secret -n openfaas basic-auth -o jsonpath="{.data.basic-auth-password}" | base64 --decode; echo)
-echo -n $PASSWORD | faas-cli login --username admin --password-stdin
-
-faas-cli store deploy figlet
-faas-cli list
-
-# For Raspberry Pi
-faas-cli store list \
- --platform armhf
-
-faas-cli store deploy figlet \
- --platform armhf
-
-# Find out more at:
-# https://github.com/openfaas/faas
-
-Thanks for using arkade!
-```
-
-```bash
 # Forward the gateway to your machine
 kubectl rollout status -n openfaas deploy/gateway
 kubectl port-forward -n openfaas svc/gateway 8080:8080 &
@@ -71,11 +28,6 @@ echo -n $PASSWORD | faas-cli login --username admin --password-stdin
 ```
 
 Visit http://127.0.0.1:8080/
-
-```bash
-faas-cli store deploy figlet
-faas-cli list
-```
 
 # Build and deploy your own functino
 
@@ -98,4 +50,8 @@ Deploying: go-fn.
 
 Deployed. 202 Accepted.
 URL: http://127.0.0.1:8080/function/go-fn
+```
+
+```bash
+faas-cli list
 ```
