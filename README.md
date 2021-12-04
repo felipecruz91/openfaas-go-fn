@@ -3,6 +3,8 @@
 
 Sample OpenFaaS Go Function (classic template) ready to run as a [Docker Dev Environment](https://docs.docker.com/desktop/dev-environments/).
 
+(Part of the blog post https://felipecruz.es/making-a-docker-dev-environment-for-openfaas/)
+
 ## Getting started
 
 This repository is configured to run as a Docker Dev Environment using the base image specified [here](https://github.com/felipecruz91/openfaas-go-fn/blob/main/.docker/config.json#L2).
